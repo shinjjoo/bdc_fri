@@ -1,0 +1,8 @@
+{
+  "name": "찬양 신호등 (Worship Signal)_악보버전",
+  "description": "교회 인도자와 찬양팀이 실시간으로 소통하며 예배 흐름을 원활하게 조율하는 스마트한 신호 공유 앱입니다.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
