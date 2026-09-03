@@ -1,4 +1,4 @@
-name: Deploy Vite app to Pages
+name: Deploy static content to Pages
 
 on:
   push:
@@ -21,20 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Set up Node.js
+      - name: Set up Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install
-        
-      - name: Build project
+        run: npm ci
+
+      - name: Build
         run: npm run build
 
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Vite의 기본 빌드 결과 폴더인 dist를 지정합니다.
           path: ./dist
 
   deploy:
