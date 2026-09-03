@@ -18,17 +18,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: Set up Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-          cache: 'npm'
+          node-version: 22
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build
         run: npm run build
@@ -36,9 +36,7 @@ jobs:
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Vite의 기본 빌드 결과 폴더인 dist를 지정합니다.
           path: ./dist
-
   deploy:
     environment:
       name: github-pages
